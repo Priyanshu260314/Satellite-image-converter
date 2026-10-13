@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload & Enhance Image</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      background-image: url("https://wallpaperaccess.com/full/672584.jpg"); 
+      background-size: cover;
+      color: #f0f0f0;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.7);
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .upload-box {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .upload-box input[type="file"] {
+      margin: 1rem 0;
+      color: #fff;
+    }
+
+    .upload-box input[type="submit"] {
+      padding: 0.7rem 2rem;
+      background-color: #00c9ff;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .upload-box input[type="submit"]:hover {
+      background-color: #00a1cc;
+    }
+
+    .preview {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .preview img {
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.7);
+      width: 300px;
+    }
+
+    .history-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      height: fit-content;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    .timestamp {
+      font-size: 0.8rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <header style="background: #111; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center;">
+  <div style="color: white; font-weight: bold;">Satellite Image Enhancer</div>
+  <nav>
+    <a href="{{ url_for('index') }}" style="color:white; margin-right: 15px;">Home</a>
+    <a href="{{ url_for('home') }}" style="color:white; margin-right: 15px;">Dashboard</a>
+    <a href="{{ url_for('upload') }}" style="color:white; margin-right: 15px;">Upload</a>
+    <a href="{{ url_for('about') }}" style="color:white; margin-right: 15px;">About</a>
+    <a href="{{ url_for('help') }}" style="color:white; margin-right: 15px;">Help</a>
+    <a href="{{ url_for('login') }}" style="color:white; margin-right: 15px;">Login</a>
+    <a href="{{ url_for('signup') }}" style="color:white;">Signup</a>
+  </nav>
+</header>
+  <div class="overlay">
+    <div class="container">
+      <h1> Image Enhancer</h1>
+
+      <div class="upload-box">
+        <form method="POST" enctype="multipart/form-data">
+          <input type="file" name="image" required><br>
+          <input type="submit" value="Upload & Enhance">
+        </form>
+      </div>
+
+      {% if original %}
+        <h2>Preview</h2>
+        <div class="preview">
+          <div>
+            <img src="{{ url_for('static', filename='input/' + original) }}" alt="Original Image">
+            <p style="text-align:center;">Original</p>
+          </div>
+          <div>
+            <img src="{{ url_for('static', filename='output/' + enhanced) }}" alt="Enhanced Image">
+            <p style="text-align:center;">Enhanced</p>
+          </div>
+        </div>
+      {% endif %}
+
+      <h2>Upload History</h2>
+      <div class="history-grid">
+        {% for record in records %}
+        <div class="card">
+          <p class="timestamp">Uploaded: {{ record.upload_time }}</p>
+          <img src="{{ url_for('static', filename='input/' + record.original_filename) }}" alt="Original">
+          <img src="{{ url_for('static', filename='output/' + record.enhanced_filename) }}" alt="Enhanced">
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</body>
+</html>

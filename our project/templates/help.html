@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help - Satellite Image Converter</title>
+  <style> * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f7faff;
+      color: #333;
+    }
+    
+    /* Header */
+    .header {
+      background-color: #1d3557;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+    
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    .nav-links a.active,
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Help Section */
+    .help-section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    
+    .help-section h1 {
+      font-size: 32px;
+      color: #1d3557;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    
+    .faq h2, .support h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #004080;
+    }
+    
+    .faq-item {
+      margin-bottom: 20px;
+      background-color: #eef6ff;
+      padding: 15px 20px;
+      border-radius: 8px;
+      border-left: 5px solid #1d3557;
+    }
+    
+    .faq-item h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+      color: #1d3557;
+    }
+    
+    .faq-item p {
+      font-size: 16px;
+    }
+    
+    .support {
+      margin-top: 40px;
+      text-align: center;
+    }
+    
+    
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #1d3557;
+      color: white;
+      margin-top: 50px;
+    }
+    /* === Support Button Style === */
+
+
+/* === Modal Background === */
+#supportModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+/* === Modal Box === */
+#supportModal .modal-content {
+  background: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* === Close Button (X) === */
+#supportModal .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #888;
+}
+
+#supportModal .close-btn:hover {
+  color: #000;
+}
+
+/* === Form Styling === */
+#supportModal input,
+#supportModal textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#supportModal button[type="submit"] {
+  margin-top: 15px;
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+#supportModal button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+button.contactsupport-btn {
+  background-color:rgb(12, 31, 71); /* 🔁 CHANGE THIS to your desired color */
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.contactsupport-btn:hover {
+  background-color:rgb(91, 190, 223); /* 🔁 Hover color */
+}
+
+  </style>
+</head>
+
+<body>
+  <header style="background: #111; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center;">
+  <div style="color: white; font-weight: bold;">Satellite Image Enhancer</div>
+  <nav>
+    <a href="{{ url_for('index') }}" style="color:white; margin-right: 15px;">Home</a>
+    <a href="{{ url_for('home') }}" style="color:white; margin-right: 15px;">Dashboard</a>
+    <a href="{{ url_for('upload') }}" style="color:white; margin-right: 15px;">Upload</a>
+    <a href="{{ url_for('about') }}" style="color:white; margin-right: 15px;">About</a>
+    <a href="{{ url_for('help') }}" style="color:white; margin-right: 15px;">Help</a>
+    <a href="{{ url_for('login') }}" style="color:white; margin-right: 15px;">Login</a>
+    <a href="{{ url_for('signup') }}" style="color:white;">Signup</a>
+  </nav>
+</header>
+  <header class="header">
+    <div class="logo"> <b>SATTELITE IMAGE CONVERTER</b></div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="{{url_for('index')}}">Home</a></li>
+        <li><a href="{{url_for('upload')}}">Upload</a></li>
+        
+
+      </ul>
+    </nav>
+  </header>
+
+  <main class="help-section">
+    <h1>Help & Support</h1>
+
+    <section class="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>📷 How do I upload a satellite image?</h3>
+        <p>Click on the "Upload" tab, select a supported image format (JPG, PNG, TIFF), and submit it through the form.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>🖼 What types of images are supported?</h3>
+        <p>We support most common image types including .jpg, .jpeg, .png, and .tiff with a size limit of 20MB.</p>
+      </div>
+      <div class="faq-item">
+        <h3>⚙️ What happens after I upload an image?</h3>
+        <p>The system automatically enhances resolution and removes noise using AI models. A preview will be provided.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>📩 How can I contact support?</h3>
+        <p>You can reach us at <a
+            href="mail to:support@satelliteimageconverter.com">support@satteliteimageconverter.com</a></p>
+      </div>
+    </section>
+
+    <section class="support">
+      <h2>Need More Help?</h2>
+      <p>If your issue isn’t listed above, feel free to email us directly or use the contact form on the support page.
+      </p>
+      <!-- Help content above -->
+<button class="contactsupport-btn" onclick="document.getElementById('supportModal').style.display='block'">
+  Contact Support
+</button>
+<!-- Help content below -->
+
+   </section>
+  </main>
+  <section>
+    <!-- Modal  HTML -->
+<div id="supportModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+background-color:rgba(19, 22, 243, 0.5); z-index:1000;">
+<div style="background:#fff; margin:10% auto; padding:20px; width:300px; position:relative;">
+  <span style="position:absolute; top:10px; right:15px; cursor:pointer;" 
+        onclick="document.getElementById('supportModal').style.display='none'">&times;</span>
+  <h3>Contact Support</h3>
+  <form>
+    <input type="text" placeholder="Name" required><br><br>
+    <input type="email" placeholder="Email" required><br><br>
+    <textarea placeholder="Your issue..." required></textarea><br><br>
+    <button type="submit">Send</button>
+  </form>
+</div>
+</div>
+<!-- Help content above -->
+
+<!-- Help content below -->
+
+  </section>
+  <footer>
+    <p>&copy; 2025 satteliteimageconverter. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>

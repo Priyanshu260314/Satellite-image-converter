@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About - Image Enhancer</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f8fc;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: auto;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .about-content {
+      flex: 1 1 60%;
+      padding: 40px;
+    }
+
+    .about-content h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #005b96;
+    }
+
+    .about-content h2 {
+      font-size: 24px;
+      margin-top: 25px;
+      color: #004578;
+    }
+
+    .about-content p,
+    .about-content ul {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .about-content ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    .about-content a {
+      color: #007acc;
+      text-decoration: none;
+    }
+
+    .about-content a:hover {
+      text-decoration: underline;
+    }
+
+    .about-image {
+      flex: 1 1 40%;
+      background: rgb(230, 228, 228);
+      display: flex;
+      align-items:unset;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .about-image img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .about-container {
+        flex-direction: column;
+      }
+
+      .about-content,
+      .about-image {
+        flex: 1 1 100%;
+        padding: 20px;
+      }
+    }
+
+    /* ======= Header Styling ======= */
+    .header {
+      background-color: #1d3557;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+      color: #a8dadc;
+    }
+  </style>
+
+<body>
+  <header style="background: #111; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center;">
+  <div style="color: white; font-weight: bold;">Satellite Image Enhancer</div>
+  <nav>
+    <a href="{{ url_for('index') }}" style="color:white; margin-right: 15px;">Home</a>
+    <a href="{{ url_for('home') }}" style="color:white; margin-right: 15px;">Dashboard</a>
+    <a href="{{ url_for('upload') }}" style="color:white; margin-right: 15px;">Upload</a>
+    <a href="{{ url_for('about') }}" style="color:white; margin-right: 15px;">About</a>
+    <a href="{{ url_for('help') }}" style="color:white; margin-right: 15px;">Help</a>
+    <a href="{{ url_for('login') }}" style="color:white; margin-right: 15px;">Login</a>
+    <a href="{{ url_for('signup') }}" style="color:white;">Signup</a>
+  </nav>
+</header>
+
+  <header class="header">
+    <div class="logo"> <b>SATTELITE IMAGE CONVERTER</b></div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="{{url_for('index')}}">Home</a></li>
+        <li><a href="{{url_for('upload')}}">Upload</a></li>
+
+      </ul>
+    </nav>
+  </header>
+  <div class="about-container">
+    <div class="about-content">
+      <h1>About SIC
+        Satellite image converter
+      </h1>
+      <p>
+        Stellite image converter is a powerful web-based tool that improves image clarity, sharpness, and
+        resolution. Specifically designed for satellite images, it leverages
+        advanced AI algorithms to restore and enhance low-quality images.
+      </p>
+
+      <h2>Key Features</h2>
+      <ul>
+        <li>AI-based upscaling for higher resolution</li>
+        <li>Noise reduction and sharpening</li>
+        <li>Supports multiple image formats (JPG, PNG, etc.)</li>
+        <li>Before-and-after preview comparison</li>
+      </ul>
+
+      <h2>Our Mission</h2>
+      <p>
+        We aim to make professional-grade image enhancement accessible to everyone through intuitive tools and
+        cutting-edge technology.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        For inquiries, collaborations, or feedback, please reach out to us at
+        <a href="mail to:support@satelliteimageconverter.com">support@satelliteimageconverter.com</a>.
+      </p>
+    </div>
+    <div class="about-image">
+      <img
+        src="https://sdmntprwestus.oaiusercontent.com/files/00000000-5350-6230-ad12-0b34c9c1a896/raw?se=2025-07-04T09%3A39%3A52Z&sp=r&sv=2024-08-04&sr=b&scid=1a3493f1-0de2-56a9-a508-e3032139920d&skoid=789f404f-91a9-4b2f-932c-c44965c11d82&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-03T15%3A12%3A00Z&ske=2025-07-04T15%3A12%3A00Z&sks=b&skv=2024-08-04&sig=BQHF1SWgMybttgDIzgRwualyFYljszoUArX9/OwDM7c%3D "
+        alt="Logo">
+
+    </div>
+  </div>
+</body>
+
+</html>

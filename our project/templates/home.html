@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Satellite Image Converter</title>
+  <style>* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f8fc;
+      color: #333;
+    }
+    
+    /* Header */
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #1d3557;
+      color: #fff;
+    }
+    
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+    }
+    
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Hero Section */
+    .hero-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 60px 40px;
+      background: linear-gradient(to right, #e0f7fa, #e3f2fd);
+    }
+    
+    .hero-text {
+      flex: 1 1 50%;
+    }
+    
+    .hero-text h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #1d3557;
+    }
+    
+    .hero-text p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    
+    .btn {
+      background-color: #1d3557;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .btn:hover {
+      background-color: #457b9d;
+    }
+    
+    .hero-image {
+      flex: 1 1 50%;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .hero-image img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #1d3557;
+      color: white;
+      margin-top: 40px;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <header style="background: #111; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center;">
+  <div style="color: white; font-weight: bold;">Satellite Image Enhancer</div>
+  <nav>
+    <a href="{{ url_for('index') }}" style="color:white; margin-right: 15px;">Home</a>
+    <a href="{{ url_for('home') }}" style="color:white; margin-right: 15px;">Dashboard</a>
+    <a href="{{ url_for('upload') }}" style="color:white; margin-right: 15px;">Upload</a>
+    <a href="{{ url_for('about') }}" style="color:white; margin-right: 15px;">About</a>
+    <a href="{{ url_for('help') }}" style="color:white; margin-right: 15px;">Help</a>
+    <a href="{{ url_for('login') }}" style="color:white; margin-right: 15px;">Login</a>
+    <a href="{{ url_for('signup') }}" style="color:white;">Signup</a>
+  </nav>
+</header>
+  <header class="site-header">
+    <div class="logo">Satellite Image Converter</div>
+    <nav>
+     <ul class="nav-links">
+  <li><a href="{{ url_for('index') }}">Home</a></li>
+  <li><a href="{{ url_for('about') }}">About</a></li>
+  <li><a href="{{ url_for('help') }}">Help</a></li>
+  <li><a href="{{ url_for('upload') }}">Upload</a></li>
+  <li><a href="{{ url_for('signup') }}">Signup</a></li>
+</ul>
+    </nav>
+  </header>
+
+  <section class="hero-section">
+    <div class="hero-text">
+      <h1>Welcome to SatImageX</h1>
+      <p>Convert, Enhance, and Analyze Satellite Images with Ease.</p>
+      <a href="upload.html" class="btn">Get Started</a>
+    </div>
+    <div class="hero-image">
+      <img src="https://media.istockphoto.com/id/1184438696/photo/global-network-connection.jpg?s=612x612"
+        alt="Satellite Illustration" />
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; copyrigh&copy; 2025 Satellite Image Converter. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>

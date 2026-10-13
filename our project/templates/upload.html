@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upload Satellite Image</title>
+  
+  
+  <style>
+    *
+ {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-image: url('https://media.istockphoto.com/id/181075945/photo/satellite-and-planet.jpg?s=612x612&w=0&k=20&c=SwvAUFvpzar6OFqGoiAqL2TKL5JJ5783mfDMiuE9Pfw='); /* <-- update path */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.upload-container {
+  background-color: white;
+  padding: 40px 50px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  text-align: center;
+}
+
+.upload-container h1 {
+  margin-bottom: 30px;
+  color: #1d3557;
+}
+
+.upload-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.upload-form input[type="file"] {
+  margin-bottom: 20px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  background-color: #f8f9fa;
+}
+
+.upload-form button {
+  padding: 10px 20px;
+  background-color: #1d3557;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.upload-form button:hover {
+  background-color: #457b9d;
+}
+
+.note {
+  font-size: 14px;
+  margin-top: 15px;
+  color: #555;
+}
+</style>
+  
+</head>
+
+<body>
+  <header style="background: #111; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center;">
+  <div style="color: white; font-weight: bold;">Satellite Image Enhancer</div>
+  <nav>
+    <a href="{{ url_for('index') }}" style="color:white; margin-right: 15px;">Home</a>
+    <a href="{{ url_for('home') }}" style="color:white; margin-right: 15px;">Dashboard</a>
+    <a href="{{ url_for('upload') }}" style="color:white; margin-right: 15px;">Upload</a>
+    <a href="{{ url_for('about') }}" style="color:white; margin-right: 15px;">About</a>
+    <a href="{{ url_for('help') }}" style="color:white; margin-right: 15px;">Help</a>
+    <a href="{{ url_for('login') }}" style="color:white; margin-right: 15px;">Login</a>
+    <a href="{{ url_for('signup') }}" style="color:white;">Signup</a>
+  </nav>
+</header>
+  <div class="upload-container">
+    <h1>Upload Satellite Image</h1>
+    <form action="#" method="post" enctype="multipart/form-data" class="upload-form">
+      <label for="file-upload">Choose an image to upload:</label>
+      <input type="file" id="file-upload" name="sat-image" accept="image/*" required>
+
+      <button type="submit">Upload Image</button>
+    </form>
+    <p class="note">Supported formats: JPG, PNG, TIFF | Max size: 20MB</p>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+    
+    form.addEventListener("submit", function (e) {
+        const fileInput = form.querySelector('input[type="file"]');
+        
+        if (!fileInput.files.length) {
+            e.preventDefault();
+            alert("Please select an image to upload.");
+        } else {
+            alert("Image uploaded successfully!");
+        }
+    });
+});
+
+  </script>
+</body>
+
+</html>
