@@ -68,15 +68,11 @@ Satellite-Image-Converter/
 
 Replace the example URL with your actual GitHub repository URL.
 
-```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
-```
+git clone https://github.com/Priyanshu260314/Satellite-image-converter.git
 
 Move into the project folder:
 
-```bash
 cd Satellite-Image-Converter
-```
 
 Alternatively, download the repository ZIP file and extract it.
 
