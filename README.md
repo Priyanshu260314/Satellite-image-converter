@@ -1,4 +1,4 @@
-# 🛰️ Satellite Image Converter & Enhancer
+# 🛰️ Satellite Image Converter
 
 **A Flask-Based Web Application for Satellite Image Processing and Enhancement**
 
